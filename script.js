@@ -70,12 +70,19 @@ function searchKipris(queryString, kr) {
         objs.setAttribute('name', 'logFlag');
         objs.setAttribute('value', 'Y');
         form.appendChild(objs);
-        
+
         objs = document.createElement('input');
 
         objs.setAttribute('name', 'historyQuery');
         objs.setAttribute('value', queryString);
         form.appendChild(objs);
+
+        objs = document.createElement('input');
+
+        objs.setAttribute('name', 'searchSaveCnt');
+        objs.setAttribute('value', '747');
+        form.appendChild(objs);
+
 
         form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
     } else {
