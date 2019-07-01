@@ -45,7 +45,7 @@ function gotoServer() {
     }
 }
 
-function searchKipris(queryStringzz) {
+function searchKipris(queryString) {
     let form = document.createElement('form');
     let objs = document.createElement('input');
 
