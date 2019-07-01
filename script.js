@@ -36,7 +36,7 @@ function gotoServer() {
             searchKipris(decodeURI(qs), true);
             break;
         case 'kipris(!kr)':
-            searchKipris(decodeURI(qs), true);
+            searchKipris(decodeURI(qs), false);
             break;
         case 'escapenet-en':
         case 'escapenet-fr':
