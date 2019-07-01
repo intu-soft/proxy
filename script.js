@@ -62,48 +62,9 @@ function searchKipris(queryString, kr) {
     objs.setAttribute('value', queryString.split('\"').join("&quot;"));
     form.appendChild(objs);
 
-
-
     if (kr === true) {
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'logFlag');
-        objs.setAttribute('value', 'Y');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'historyQuery');
-        objs.setAttribute('value', queryString);
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'searchSaveCnt');
-        objs.setAttribute('value', '747');
-        form.appendChild(objs);
-
-
         form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
     } else {
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'SEL_PAT');
-        objs.setAttribute('value', 'ABPAT');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'collectionValues');
-        objs.setAttribute('value', 'S_T.col,EP_T.col,WO_T.col,PAJ_T.col,CN_T.col,');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'next');
-        objs.setAttribute('value', 'AbstList');
-        form.appendChild(objs);
-
         form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resulta.do");
     }
     form.setAttribute('method', 'post');
@@ -111,5 +72,11 @@ function searchKipris(queryString, kr) {
     document.body.appendChild(form);
 
     form.submit();
+
+    if(kr === false) {
+        form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resultcnta.do?method=getCtryCount");
+        form.submit();
+    }
+    
     document.body.removeChild(form);
 }
