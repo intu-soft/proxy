@@ -79,6 +79,12 @@ function searchKipris(queryString, kr) {
         objs.setAttribute('value', 'S_T.col,EP_T.col,WO_T.col,PAJ_T.col,CN_T.col,');
         form.appendChild(objs);
 
+        objs = document.createElement('input');
+
+        objs.setAttribute('name', 'next');
+        objs.setAttribute('value', 'AbstList');
+        form.appendChild(objs);
+
         form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resulta.do");
     }
     form.setAttribute('method', 'post');
