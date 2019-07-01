@@ -62,22 +62,36 @@ function searchKipris(queryString, kr) {
     objs.setAttribute('value', queryString.split('\"').join("&quot;"));
     form.appendChild(objs);
 
+
+
     if (kr === true) {
+        objs = document.createElement('input');
+
+        objs.setAttribute('name', 'logFlag');
+        objs.setAttribute('value', 'Y');
+        form.appendChild(objs);
+
+        objs = document.createElement('input');
+
+        objs.setAttribute('name', 'historyQuery');
+        objs.setAttribute('value', queryString);
+        form.appendChild(objs);
+        
+
         form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
     } else {
+        objs = document.createElement('input');
+
+        objs.setAttribute('name', 'collectionValues');
+        objs.setAttribute('value', ['US_T.col', 'EP_T.col', 'WO_T.col', 'PAJ_T.col', 'CN_T.col']);
+        form.appendChild(objs);
+
         form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resulta.do");
     }
     form.setAttribute('method', 'post');
 
     document.body.appendChild(form);
 
-    if(kr === false) {
-        setTimeout(function () {
-            form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resultcnta.do?method=getCtryCount");
-            form.submit();
-            document.body.removeChild(form);
-        }, 200);
-    }
     form.submit();
-    //document.body.removeChild(form);
+    document.body.removeChild(form);
 }
