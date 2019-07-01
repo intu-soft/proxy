@@ -71,12 +71,13 @@ function searchKipris(queryString, kr) {
 
     document.body.appendChild(form);
 
-    form.submit();
-
     if(kr === false) {
-        form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resultcnta.do?method=getCtryCount");
-        form.submit();
+        setTimeout(function () {
+            form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resultcnta.do?method=getCtryCount");
+            form.submit();
+            document.body.removeChild(form);
+        }, 200);
     }
-    
-    document.body.removeChild(form);
+    form.submit();
+    //document.body.removeChild(form);
 }
