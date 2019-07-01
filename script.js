@@ -32,11 +32,8 @@ function gotoServer() {
         case 'uspto':
             window.location.href = ("http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.htm&r=0&p=1&f=S&l=50&Query=" + qs + "&d=PTXT");
             break;
-        case 'kipris(kr)':
-            searchKipris(decodeURI(qs), true);
-            break;
-        case 'kipris(!kr)':
-            searchKipris(decodeURI(qs), false);
+        case 'kipris':
+            searchKipris(decodeURI(qs));
             break;
         case 'escapenet-en':
         case 'escapenet-fr':
@@ -48,7 +45,7 @@ function gotoServer() {
     }
 }
 
-function searchKipris(queryString, kr) {
+function searchKipris(queryStringzz) {
     let form = document.createElement('form');
     let objs = document.createElement('input');
 
@@ -63,44 +60,8 @@ function searchKipris(queryString, kr) {
     form.appendChild(objs);
 
 
-
-    if (kr === true) {
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'logFlag');
-        objs.setAttribute('value', 'Y');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'historyQuery');
-        objs.setAttribute('value', queryString);
-        form.appendChild(objs);
-        
-
-        form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
-    } else {
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'next');
-        objs.setAttribute('value', 'AbstList');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'SEL_PAT');
-        objs.setAttribute('value', 'ABPAT');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'collectionValues');
-        objs.setAttribute('value', ['US_T.col', 'EP_T.col', 'WO_T.col', 'PAJ_T.col', 'CN_T.col',]);
-        form.appendChild(objs);
-
-        form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resulta.do");
-    }
     form.setAttribute('method', 'post');
+    form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
 
     document.body.appendChild(form);
 
