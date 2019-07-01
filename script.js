@@ -63,12 +63,25 @@ function searchKipris(queryString, kr) {
     form.appendChild(objs);
 
 
-    form.setAttribute('method', 'post');
+
     if (kr === true) {
         form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
     } else {
-        form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resulta.do");
+        objs = document.createElement('input');
+
+        objs.setAttribute('name', 'SEL_PAT');
+        objs.setAttribute('value', 'ABPAT');
+        form.appendChild(objs);
+
+        objs = document.createElement('input');
+
+        objs.setAttribute('name', 'collectionValues');
+        objs.setAttribute('value', 'S_T.col,EP_T.col,WO_T.col,PAJ_T.col,CN_T.col,');
+        form.appendChild(objs);
+
+        form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resultcnta.do?method=getCtryCount");
     }
+    form.setAttribute('method', 'post');
 
     document.body.appendChild(form);
 
