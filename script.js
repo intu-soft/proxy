@@ -32,8 +32,11 @@ function gotoServer() {
         case 'uspto':
             window.location.href = ("http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.htm&r=0&p=1&f=S&l=50&Query=" + qs + "&d=PTXT");
             break;
-        case 'kipris':
-            searchKipris(decodeURI(qs));
+        case 'kipris(kr)':
+            searchKipris(decodeURI(qs), true);
+            break;
+        case 'kipris(!kr)':
+            searchKipris(decodeURI(qs), true);
             break;
         case 'escapenet-en':
         case 'escapenet-fr':
@@ -45,7 +48,7 @@ function gotoServer() {
     }
 }
 
-function searchKipris(queryString) {
+function searchKipris(queryString, kr) {
     let form = document.createElement('form');
     let objs = document.createElement('input');
 
@@ -61,7 +64,11 @@ function searchKipris(queryString) {
 
 
     form.setAttribute('method', 'post');
-    form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
+    if (kr === true) {
+        form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
+    } else {
+        form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resulta.do");
+    }
 
     document.body.appendChild(form);
 
