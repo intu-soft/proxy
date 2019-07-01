@@ -65,6 +65,12 @@ function searchKipris(queryString, kr) {
 
 
     if (kr === true) {
+        objs = document.createElement('input');
+
+        objs.setAttribute('name', 'historyQuery');
+        objs.setAttribute('value', queryString);
+        form.appendChild(objs);
+        
         form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
     } else {
         objs = document.createElement('input');
@@ -83,12 +89,6 @@ function searchKipris(queryString, kr) {
 
         objs.setAttribute('name', 'next');
         objs.setAttribute('value', 'AbstList');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-
-        objs.setAttribute('name', 'searchExpression');
-        objs.setAttribute('value', queryString);
         form.appendChild(objs);
 
         form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resulta.do");
