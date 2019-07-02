@@ -11,6 +11,8 @@ function load() {
     if (_server === 'uspto') {
         gotoServer(_server, _qs);
         counter = 0;
+    } else {
+        document.getElementById('count').innerHTML = "Nevigated to the result page after 5 seconds.";
     }
 
     setInterval(function () {
@@ -29,7 +31,6 @@ function load() {
         }
     }, 1000);
 }
-
 
 function gotoServer(server, qs) {
     document.getElementById('count').style.marginLeft = '250px';
