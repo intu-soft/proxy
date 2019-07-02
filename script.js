@@ -44,8 +44,11 @@ function gotoServer(server, qs) {
         case 'uspto':
             window.location.href = ("http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.htm&r=0&p=1&f=S&l=50&Query=" + qs + "&d=PTXT");
             break;
-        case 'kipris':
-            searchKipris(decodeURI(qs));
+        case 'kipris(kr)':
+            searchKipris(decodeURI(qs), true);
+            break;
+        case 'kipris(!kr)':
+            searchKipris(decodeURI(qs), false);
             break;
         case 'escapenet-en':
         case 'escapenet-fr':
@@ -57,26 +60,41 @@ function gotoServer(server, qs) {
     }
 }
 
-function searchKipris(queryString) {
+function searchKipris(queryString, kr) {
     let form = document.createElement('form');
-    let objs = document.createElement('input');
 
+    let objs = document.createElement('input');
     objs.setAttribute('name', 'expression');
     objs.setAttribute('value', queryString);
     form.appendChild(objs);
 
     objs = document.createElement('input');
-
     objs.setAttribute('name', 'queryText');
     objs.setAttribute('value', queryString.split('\"').join("&quot;"));
     form.appendChild(objs);
 
-
+    if(!kr){
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'collectionValues');
+        objs.setAttribute('value', ['US_T.col', 'EP_T.col', 'WO_T.col', 'PAJ_T.col', 'CN_T.col', ]);
+        form.appendChild(objs);
+    }
+    
     form.setAttribute('method', 'post');
-    form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
-
+    if(!kr){
+        form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resulta.do");
+    }
+    else {
+        form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
+    }
     document.body.appendChild(form);
 
     form.submit();
+    
+    if(!kr) {
+        form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/searchLogina.do?next=MainSearch");
+        form.submit();
+    }
+    
     document.body.removeChild(form);
 }
