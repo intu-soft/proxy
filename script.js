@@ -2,29 +2,40 @@ let counter = 5;
 let periods = ["...", ".", ".."];
 let periods_count = 0;
 
-$(function () {
+let _tempUrl = window.location.search.substring(1); //url에서 처음부터 '?'까지 삭제
+let _tempArray = _tempUrl.split('!%*');
+let _server = _tempArray[0].split('=')[1];
+let _qs = _tempArray[1].split('qs=')[1];
+
+function load() {
+    if (_server === 'uspto') {
+        gotoServer(_server, _qs);
+        counter = 0;
+    }
+
     setInterval(function () {
         counter--;
         if (counter == 0) {
-            gotoServer();
+            gotoServer(_server, _qs);
         } else if (counter > 0) {
-            $('#count').text("Nevigated to the result page after " + String(counter) + " seconds.");
+            document.getElementById('count').innerHTML = "Nevigated to the result page after " + String(counter) + " seconds.";
         } else if (counter < 0) {
-            $('#count').text("Nevigating to the result page" + periods[periods_count]);
             if (periods_count < 2) {
                 periods_count++;
             } else {
                 periods_count = 0;
             }
+            document.getElementById('periods').innerHTML = periods[periods_count];
         }
     }, 1000);
-})();
+}
 
-function gotoServer() {
-    let _tempUrl = window.location.search.substring(1); //url에서 처음부터 '?'까지 삭제
-    let _tempArray = _tempUrl.split('!%*');
-    let server = _tempArray[0].split('=')[1];
-    let qs = _tempArray[1].split('qs=')[1];
+
+function gotoServer(server, qs) {
+    document.getElementById('count').style.marginLeft = '250px';
+    document.getElementById('count').innerHTML = "Nevigating to the result page";
+    document.getElementById('periods').innerHTML = periods[periods_count];
+
     switch (server) {
         case 'google':
             window.location.href = ("http://patents.google.com/?q=" + qs + "&oq=" + qs);

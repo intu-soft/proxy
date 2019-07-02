@@ -3,7 +3,6 @@
 <html>
 
 <head>
-	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113551099-6"></script>
 	<script>
@@ -19,19 +18,20 @@
 
 </head>
 
-<body>
+<body onload="load()">
 	<script src="script.js"></script>
 	<div style="display: grid; grid-template-columns: 1fr 728px 1fr">
 		<div></div>
-		<div style="border: 1px solid black; text-align: center; padding: 40px 0 40px 0">Advertising<br>Contact us :
-			admin@intu-soft.com</div>
+		<div style="border: 1px solid black; text-align: center; padding: 40px 0 40px 0">Advertising</div>
 		<div></div>
 	</div>
 	<div style="display: grid; grid-template-columns: 1fr 728px 1fr">
 		<div></div>
-		<div id="count" style="text-align:center; padding-top: 5px">Nevigated to the result page after 5 seconds.</div>
+		<div>
+			<span id="count" style="margin-left: 200px; padding-top: 5px">Nevigated to the result page after 5 seconds.</span>
+			<span id="periods"></span>
+		</div>
 		<div></div>
 	</div>
 </body>
-
 </html>
