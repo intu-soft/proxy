@@ -8,35 +8,10 @@ let _server = _tempArray[0].split('=')[1];
 let _qs = _tempArray[1].split('qs=')[1];
 
 function load() {
-    if (_server === 'uspto') {
-        gotoServer(_server, _qs);
-        counter = 0;
-    } else {
-        document.getElementById('count').innerHTML = "Nevigated to the result page after 5 seconds.";
-    }
-
-    setInterval(function () {
-        counter--;
-        if (counter == 0) {
-            gotoServer(_server, _qs);
-        } else if (counter > 0) {
-            document.getElementById('count').innerHTML = "Nevigated to the result page after " + String(counter) + " seconds.";
-        } else if (counter < 0) {
-            if (periods_count < 2) {
-                periods_count++;
-            } else {
-                periods_count = 0;
-            }
-            document.getElementById('periods').innerHTML = periods[periods_count];
-        }
-    }, 1000);
+    gotoServer(_server, _qs);
 }
 
 function gotoServer(server, qs) {
-    document.getElementById('count').style.marginLeft = '250px';
-    document.getElementById('count').innerHTML = "Nevigating to the result page";
-    document.getElementById('periods').innerHTML = periods[periods_count];
-
     switch (server) {
         case 'google':
             window.location.href = ("http://patents.google.com/?q=" + qs + "&oq=" + qs);
