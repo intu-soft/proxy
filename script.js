@@ -20,10 +20,10 @@ function gotoServer(server, qs) {
             window.location.href = ("http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.htm&r=0&p=1&f=S&l=50&Query=" + qs + "&d=PTXT");
             break;
         case 'kipris(kr)':
-            searchKipris(decodeURI(qs), true);
+            searchKipris(decodeURI(qs).replaceAll("%3d", "="), true);
             break;
         case 'kipris(!kr)':
-            searchKipris(decodeURI(qs), false);
+            searchKipris(decodeURI(qs).replaceAll("%3d", "="), false);
             break;
         case 'escapenet-en':
         case 'escapenet-fr':
@@ -73,3 +73,8 @@ function searchKipris(queryString, kr) {
     
     document.body.removeChild(form);
 }
+
+//replaceAll prototype 선언
+String.prototype.replaceAll = function (org, dest) {
+    return this.split(org).join(dest);
+  }
