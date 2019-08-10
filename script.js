@@ -77,4 +77,4 @@ function searchKipris(queryString, kr) {
 //replaceAll prototype 선언
 String.prototype.replaceAll = function (org, dest) {
     return this.split(org).join(dest);
-  }
+}
