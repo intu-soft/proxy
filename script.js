@@ -14,7 +14,7 @@ function load() {
 function gotoServer(server, qs) {
     switch (server) {
         case 'google':
-            window.location.href = ("http://patents.google.com/?q=" + qs.replaceAll("%3a", ":") + "&oq=" + qs.replaceAll("%3a", ":"));
+            window.location.href = ("http://patents.google.com/?q=" + qs + "&oq=" + qs);
             break;
         case 'uspto':
             window.location.href = ("http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.htm&r=0&p=1&f=S&l=50&Query=" + qs + "&d=PTXT");
