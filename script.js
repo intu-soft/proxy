@@ -47,62 +47,12 @@ function searchKipris(queryString, kr) {
     objs.setAttribute('name', 'queryText');
     objs.setAttribute('value', queryString.split('\"').join("&quot;"));
     form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'numPerPage');
-    objs.setAttribute('value', 30);
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'numPageLinks');
-    objs.setAttribute('value', 10);
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'currentPage');
-    objs.setAttribute('value', 1);
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'logFlag');
-    objs.setAttribute('value', 'Y');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'strstat');
-    objs.setAttribute('value', 'TOP|KW');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'searchFg');
-    objs.setAttribute('value', 'Y');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'searchInTrans');
-    objs.setAttribute('value', 'N');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'configChange');
-    objs.setAttribute('value', 'Y');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'sortState');
-    objs.setAttribute('value', 'Desc');
-    form.appendChild(objs);
-
+    
     objs = document.createElement('input');
     objs.setAttribute('name', 'SEL_PAT');
 
     if (!kr) {
         objs.setAttribute('value', 'ABPAT');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-        objs.setAttribute('name', 'config');
-        objs.setAttribute('value', 'G11001111111111111111111111110S10000111000111100001000');
         form.appendChild(objs);
 
         objs = document.createElement('input');
@@ -116,11 +66,6 @@ function searchKipris(queryString, kr) {
         form.appendChild(objs);
     } else {
         objs.setAttribute('value', 'KPAT');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-        objs.setAttribute('name', 'config');
-        objs.setAttribute('value', 'G1111111111111111111111S111111111000000000');
         form.appendChild(objs);
 
         objs = document.createElement('input');
