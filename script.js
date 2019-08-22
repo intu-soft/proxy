@@ -48,11 +48,53 @@ function searchKipris(queryString, kr) {
     objs.setAttribute('value', queryString.split('\"').join("&quot;"));
     form.appendChild(objs);
 
+<<<<<<< HEAD
     if(!kr){
+=======
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'numPageLinks');
+    objs.setAttribute('value', '1');
+    form.appendChild(objs);
+
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'currentPage');
+    objs.setAttribute('value', '1');
+    form.appendChild(objs);
+
+
+    if (!kr) {
+
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'config');
+        objs.setAttribute('value', 'G11001111111111111111111111110S10000111000111100001000');
+        form.appendChild(objs);
+
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'next');
+        objs.setAttribute('value', 'AbstList');
+        form.appendChild(objs);
+
+>>>>>>> 065616641ea623738025db22c5bab1395b4cb662
         objs = document.createElement('input');
         objs.setAttribute('name', 'collectionValues');
         objs.setAttribute('value', ['US_T.col', 'EP_T.col', 'WO_T.col', 'PAJ_T.col', 'CN_T.col', ]);
         form.appendChild(objs);
+<<<<<<< HEAD
+=======
+
+    } else {
+
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'config');
+        objs.setAttribute('value', 'G1111111111111111111111S111111111000000000');
+        form.appendChild(objs);
+
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'next');
+        objs.setAttribute('value', 'MainList');
+        form.appendChild(objs);
+
+>>>>>>> 065616641ea623738025db22c5bab1395b4cb662
     }
     
     form.setAttribute('method', 'post');
