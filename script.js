@@ -50,23 +50,18 @@ function searchKipris(queryString, kr) {
 
     if (!kr) {
         objs = document.createElement('input');
-        objs.setAttribute('name', 'numPageLinks');
-        objs.setAttribute('value', '1');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-        objs.setAttribute('name', 'currentPage');
-        objs.setAttribute('value', '1');
+        objs.setAttribute('name', 'numPerPage');
+        objs.setAttribute('value', 30);
         form.appendChild(objs);
 
         objs = document.createElement('input');
         objs.setAttribute('name', 'numPageLinks');
-        objs.setAttribute('value', '1');
+        objs.setAttribute('value', 10);
         form.appendChild(objs);
 
         objs = document.createElement('input');
         objs.setAttribute('name', 'currentPage');
-        objs.setAttribute('value', '1');
+        objs.setAttribute('value', 1);
         form.appendChild(objs);
 
         objs = document.createElement('input');
