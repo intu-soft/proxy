@@ -69,36 +69,6 @@ function searchKipris(queryString, kr) {
     form.appendChild(objs);
 
     objs = document.createElement('input');
-    objs.setAttribute('name', 'transFlag');
-    objs.setAttribute('value', 'NO');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'searchFg');
-    objs.setAttribute('value', 'Y');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'searchInTrans');
-    objs.setAttribute('value', 'N');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'configChange');
-    objs.setAttribute('value', 'Y');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'sortState');
-    objs.setAttribute('value', 'Desc');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'sortField');
-    objs.setAttribute('value', 'Score');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
     objs.setAttribute('name', 'SEL_PAT');
 
     if (!kr) {
