@@ -56,6 +56,7 @@ function searchKipris(queryString, kr) {
     } 
 
     form.setAttribute('method', 'post');
+    form.setAttribute('Cookie', 'JSESSIONID=JtV3MmUbbCYZ8JVPkibxIfGrMEanqukZ4x7YDgELb1oa1VNUyWx5kqcKqctyDQdU.amV1c19kb21haW4va3BvcnRhbDQ=;');
     if (!kr) {
         form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resulta.do");
     } else {
