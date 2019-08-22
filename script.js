@@ -59,13 +59,6 @@ function searchKipris(queryString, kr) {
         objs.setAttribute('value', '1');
         form.appendChild(objs);
 
-
-        objs.setAttribute('name', 'queryText');
-        objs.setAttribute('value', queryString.split('\"').join("&quot;"));
-        objs.setAttribute('name', 'numPerPage');
-        objs.setAttribute('value', '30');
-        form.appendChild(objs);
-
         objs = document.createElement('input');
         objs.setAttribute('name', 'numPageLinks');
         objs.setAttribute('value', '1');
