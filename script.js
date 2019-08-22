@@ -48,9 +48,7 @@ function searchKipris(queryString, kr) {
     objs.setAttribute('value', queryString.split('\"').join("&quot;"));
     form.appendChild(objs);
 
-<<<<<<< HEAD
     if(!kr){
-=======
     objs = document.createElement('input');
     objs.setAttribute('name', 'numPageLinks');
     objs.setAttribute('value', '1');
@@ -62,7 +60,69 @@ function searchKipris(queryString, kr) {
     form.appendChild(objs);
 
 
+    objs.setAttribute('name', 'queryText');
+    objs.setAttribute('value', queryString.split('\"').join("&quot;"));
+    objs.setAttribute('name', 'numPerPage');
+    objs.setAttribute('value', '30');
+    form.appendChild(objs);
+
+    if(!kr){
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'numPageLinks');
+    objs.setAttribute('value', '1');
+    form.appendChild(objs);
+
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'currentPage');
+    objs.setAttribute('value', '1');
+    form.appendChild(objs);
+
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'logFlag');
+    objs.setAttribute('value', 'Y');
+    form.appendChild(objs);
+
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'strstat');
+    objs.setAttribute('value', 'TOP|KW');
+    form.appendChild(objs);
+
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'transFlag');
+    objs.setAttribute('value', 'NO');
+    form.appendChild(objs);
+
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'searchFg');
+    objs.setAttribute('value', 'Y');
+    form.appendChild(objs);
+
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'searchInTrans');
+    objs.setAttribute('value', 'N');
+    form.appendChild(objs);
+
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'configChange');
+    objs.setAttribute('value', 'Y');
+    form.appendChild(objs);
+
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'sortState');
+    objs.setAttribute('value', 'Desc');
+    form.appendChild(objs);
+
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'sortField');
+    objs.setAttribute('value', 'Score');
+    form.appendChild(objs);
+
+    objs = document.createElement('input');
+    objs.setAttribute('name', 'SEL_PAT');
+
     if (!kr) {
+        objs.setAttribute('value', 'ABPAT');
+        form.appendChild(objs);
 
         objs = document.createElement('input');
         objs.setAttribute('name', 'config');
@@ -74,15 +134,14 @@ function searchKipris(queryString, kr) {
         objs.setAttribute('value', 'AbstList');
         form.appendChild(objs);
 
->>>>>>> 065616641ea623738025db22c5bab1395b4cb662
         objs = document.createElement('input');
         objs.setAttribute('name', 'collectionValues');
         objs.setAttribute('value', ['US_T.col', 'EP_T.col', 'WO_T.col', 'PAJ_T.col', 'CN_T.col', ]);
         form.appendChild(objs);
-<<<<<<< HEAD
-=======
-
-    } else {
+    }
+    else {
+        objs.setAttribute('value', 'KPAT');
+        form.appendChild(objs);
 
         objs = document.createElement('input');
         objs.setAttribute('name', 'config');
@@ -93,8 +152,6 @@ function searchKipris(queryString, kr) {
         objs.setAttribute('name', 'next');
         objs.setAttribute('value', 'MainList');
         form.appendChild(objs);
-
->>>>>>> 065616641ea623738025db22c5bab1395b4cb662
     }
     
     form.setAttribute('method', 'post');
