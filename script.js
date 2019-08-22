@@ -58,12 +58,8 @@ function searchKipris(queryString, kr) {
     objs.setAttribute('value', '1');
     form.appendChild(objs);
 
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'SEL_PAT');
 
     if (!kr) {
-        objs.setAttribute('value', 'ABPAT');
-        form.appendChild(objs);
 
         objs = document.createElement('input');
         objs.setAttribute('name', 'config');
@@ -81,8 +77,6 @@ function searchKipris(queryString, kr) {
         form.appendChild(objs);
 
     } else {
-        objs.setAttribute('value', 'KPAT');
-        form.appendChild(objs);
 
         objs = document.createElement('input');
         objs.setAttribute('name', 'config');
