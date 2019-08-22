@@ -47,7 +47,7 @@ function searchKipris(queryString, kr) {
     objs.setAttribute('name', 'queryText');
     objs.setAttribute('value', queryString.split('\"').join("&quot;"));
     form.appendChild(objs);
-    
+
     objs = document.createElement('input');
     objs.setAttribute('name', 'SEL_PAT');
 
@@ -56,21 +56,11 @@ function searchKipris(queryString, kr) {
         form.appendChild(objs);
 
         objs = document.createElement('input');
-        objs.setAttribute('name', 'next');
-        objs.setAttribute('value', 'AbstList');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
         objs.setAttribute('name', 'collectionValues');
         objs.setAttribute('value', ['US_T.col', 'EP_T.col', 'WO_T.col', 'PAJ_T.col', 'CN_T.col', ]);
         form.appendChild(objs);
     } else {
         objs.setAttribute('value', 'KPAT');
-        form.appendChild(objs);
-
-        objs = document.createElement('input');
-        objs.setAttribute('name', 'next');
-        objs.setAttribute('value', 'MainList');
         form.appendChild(objs);
     }
 
