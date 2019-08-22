@@ -48,21 +48,12 @@ function searchKipris(queryString, kr) {
     objs.setAttribute('value', queryString.split('\"').join("&quot;"));
     form.appendChild(objs);
 
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'SEL_PAT');
-
     if (!kr) {
-        objs.setAttribute('value', 'ABPAT');
-        form.appendChild(objs);
-
         objs = document.createElement('input');
         objs.setAttribute('name', 'collectionValues');
         objs.setAttribute('value', ['US_T.col', 'EP_T.col', 'WO_T.col', 'PAJ_T.col', 'CN_T.col', ]);
         form.appendChild(objs);
-    } else {
-        objs.setAttribute('value', 'KPAT');
-        form.appendChild(objs);
-    }
+    } 
 
     form.setAttribute('method', 'post');
     if (!kr) {
