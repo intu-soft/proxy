@@ -48,129 +48,127 @@ function searchKipris(queryString, kr) {
     objs.setAttribute('value', queryString.split('\"').join("&quot;"));
     form.appendChild(objs);
 
-    if(!kr){
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'numPageLinks');
-    objs.setAttribute('value', '1');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'currentPage');
-    objs.setAttribute('value', '1');
-    form.appendChild(objs);
-
-
-    objs.setAttribute('name', 'queryText');
-    objs.setAttribute('value', queryString.split('\"').join("&quot;"));
-    objs.setAttribute('name', 'numPerPage');
-    objs.setAttribute('value', '30');
-    form.appendChild(objs);
-
-    if(!kr){
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'numPageLinks');
-    objs.setAttribute('value', '1');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'currentPage');
-    objs.setAttribute('value', '1');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'logFlag');
-    objs.setAttribute('value', 'Y');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'strstat');
-    objs.setAttribute('value', 'TOP|KW');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'transFlag');
-    objs.setAttribute('value', 'NO');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'searchFg');
-    objs.setAttribute('value', 'Y');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'searchInTrans');
-    objs.setAttribute('value', 'N');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'configChange');
-    objs.setAttribute('value', 'Y');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'sortState');
-    objs.setAttribute('value', 'Desc');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'sortField');
-    objs.setAttribute('value', 'Score');
-    form.appendChild(objs);
-
-    objs = document.createElement('input');
-    objs.setAttribute('name', 'SEL_PAT');
-
     if (!kr) {
-        objs.setAttribute('value', 'ABPAT');
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'numPageLinks');
+        objs.setAttribute('value', '1');
         form.appendChild(objs);
 
         objs = document.createElement('input');
-        objs.setAttribute('name', 'config');
-        objs.setAttribute('value', 'G11001111111111111111111111110S10000111000111100001000');
+        objs.setAttribute('name', 'currentPage');
+        objs.setAttribute('value', '1');
+        form.appendChild(objs);
+
+
+        objs.setAttribute('name', 'queryText');
+        objs.setAttribute('value', queryString.split('\"').join("&quot;"));
+        objs.setAttribute('name', 'numPerPage');
+        objs.setAttribute('value', '30');
         form.appendChild(objs);
 
         objs = document.createElement('input');
-        objs.setAttribute('name', 'next');
-        objs.setAttribute('value', 'AbstList');
+        objs.setAttribute('name', 'numPageLinks');
+        objs.setAttribute('value', '1');
         form.appendChild(objs);
 
         objs = document.createElement('input');
-        objs.setAttribute('name', 'collectionValues');
-        objs.setAttribute('value', ['US_T.col', 'EP_T.col', 'WO_T.col', 'PAJ_T.col', 'CN_T.col', ]);
-        form.appendChild(objs);
-    }
-    else {
-        objs.setAttribute('value', 'KPAT');
+        objs.setAttribute('name', 'currentPage');
+        objs.setAttribute('value', '1');
         form.appendChild(objs);
 
         objs = document.createElement('input');
-        objs.setAttribute('name', 'config');
-        objs.setAttribute('value', 'G1111111111111111111111S111111111000000000');
+        objs.setAttribute('name', 'logFlag');
+        objs.setAttribute('value', 'Y');
         form.appendChild(objs);
 
         objs = document.createElement('input');
-        objs.setAttribute('name', 'next');
-        objs.setAttribute('value', 'MainList');
+        objs.setAttribute('name', 'strstat');
+        objs.setAttribute('value', 'TOP|KW');
         form.appendChild(objs);
-    }
-    
-    form.setAttribute('method', 'post');
-    if(!kr){
-        form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resulta.do");
-    }
-    else {
-        form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
-    }
-    document.body.appendChild(form);
 
-    form.submit();
-    
-    if(!kr) {
-        form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/searchLogina.do?next=MainSearch");
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'transFlag');
+        objs.setAttribute('value', 'NO');
+        form.appendChild(objs);
+
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'searchFg');
+        objs.setAttribute('value', 'Y');
+        form.appendChild(objs);
+
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'searchInTrans');
+        objs.setAttribute('value', 'N');
+        form.appendChild(objs);
+
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'configChange');
+        objs.setAttribute('value', 'Y');
+        form.appendChild(objs);
+
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'sortState');
+        objs.setAttribute('value', 'Desc');
+        form.appendChild(objs);
+
+        objs = document.createElement('input');
+        objs.setAttribute('name', 'sortField');
+        objs.setAttribute('value', 'Score');
+        form.appendChild(objs);
+
+        if (!kr) {
+            objs = document.createElement('input');
+            objs.setAttribute('name', 'SEL_PAT');
+
+            objs.setAttribute('value', 'ABPAT');
+            form.appendChild(objs);
+
+            objs = document.createElement('input');
+            objs.setAttribute('name', 'config');
+            objs.setAttribute('value', 'G11001111111111111111111111110S10000111000111100001000');
+            form.appendChild(objs);
+
+            objs = document.createElement('input');
+            objs.setAttribute('name', 'next');
+            objs.setAttribute('value', 'AbstList');
+            form.appendChild(objs);
+
+            objs = document.createElement('input');
+            objs.setAttribute('name', 'collectionValues');
+            objs.setAttribute('value', ['US_T.col', 'EP_T.col', 'WO_T.col', 'PAJ_T.col', 'CN_T.col', ]);
+            form.appendChild(objs);
+        } else {
+            objs.setAttribute('value', 'KPAT');
+            form.appendChild(objs);
+
+            objs = document.createElement('input');
+            objs.setAttribute('name', 'config');
+            objs.setAttribute('value', 'G1111111111111111111111S111111111000000000');
+            form.appendChild(objs);
+
+            objs = document.createElement('input');
+            objs.setAttribute('name', 'next');
+            objs.setAttribute('value', 'MainList');
+            form.appendChild(objs);
+        }
+
+        form.setAttribute('method', 'post');
+        if (!kr) {
+            form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/resulta.do");
+        } else {
+            form.setAttribute('action', "http://kpat.kipris.or.kr/kpat/resulta.do");
+        }
+        document.body.appendChild(form);
+
         form.submit();
+
+        if (!kr) {
+            form.setAttribute('action', "http://abpat.kipris.or.kr/abpat/searchLogina.do?next=MainSearch");
+            form.submit();
+        }
+
+        document.body.removeChild(form);
     }
-    
-    document.body.removeChild(form);
 }
 
 //replaceAll prototype 선언
