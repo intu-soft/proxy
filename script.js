@@ -19,6 +19,9 @@ function gotoServer(server, qs) {
         case 'uspto':
             window.location.href = ("http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.htm&r=0&p=1&f=S&l=50&Query=" + qs + "&d=PTXT");
             break;
+        case 'uspto(app)':
+            window.location.href = ("http://appft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.html&r=0&p=1&f=S&l=50&Query=" + qs + "&d=PTXT");
+            break;
         case 'kipris(kr)':
             searchKipris(decodeURI(qs).replaceAll("%3d", "\=").replaceAll("%2b", "\+").replaceAll("%2f", "\/"), true);
             break;
@@ -53,7 +56,7 @@ function searchKipris(queryString, kr) {
         objs.setAttribute('name', 'collectionValues');
         objs.setAttribute('value', ['US_T.col', 'EP_T.col', 'WO_T.col', 'PAJ_T.col', 'CN_T.col', ]);
         form.appendChild(objs);
-    } 
+    }
 
     form.setAttribute('method', 'post');
     form.setAttribute('Cookie', 'JSESSIONID=JtV3MmUbbCYZ8JVPkibxIfGrMEanqukZ4x7YDgELb1oa1VNUyWx5kqcKqctyDQdU.amV1c19kb21haW4va3BvcnRhbDQ=;');
